@@ -22,8 +22,13 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
-  database: devise_doorkeeper_starter_development
+  adapter: postgresql
+  encoding: unicode
+  database: MyDatabase
+  host: localhost
+  pool: 5
+  username: postgres
+  password: MyPassword
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -56,13 +61,13 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: devise_doorkeeper_starter_test
-  # ENV POSTGRES_USER and POSTGRES_PASSWORD set in CI, usually empty
-  # in local tests, where pg is usually running with no authentication required
+  adapter: postgresql
+  encoding: unicode
+  database: MyDatabase_test
   host: localhost
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  pool: 5
+  username: postgres
+  password: MyPassword
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

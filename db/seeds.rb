@@ -7,3 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Doorkeeper::Application.create!(name: "Test client", redirect_uri: "", scopes: "") if Doorkeeper::Application.count.zero?
+
+
+User.first_or_create(email: 'shaun.c.will@gmail.com',
+                     password: 'password',
+                     password_confirmation: 'password',
+                     role: User.roles[:admin])
