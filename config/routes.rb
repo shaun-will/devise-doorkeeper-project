@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  resources :posts
-  resources :books
-  root 'pages#home'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root "pages#home"
 
-  # Defines the root path route ("/")
-  
+  use_doorkeeper
   devise_for :users
-
+  resources :books
+  
   draw :api
 end

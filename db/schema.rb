@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2022_11_04_070637) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -23,8 +20,8 @@ ActiveRecord::Schema.define(version: 2022_11_04_070637) do
   end
 
   create_table "oauth_access_tokens", force: :cascade do |t|
-    t.bigint "resource_owner_id"
-    t.bigint "application_id", null: false
+    t.integer "resource_owner_id"
+    t.integer "application_id", null: false
     t.string "token", null: false
     t.string "refresh_token"
     t.integer "expires_in"
@@ -66,6 +63,8 @@ ActiveRecord::Schema.define(version: 2022_11_04_070637) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "role", default: 0
+    t.index "\"confirmation_token\"", name: "index_users_on_confirmation_token", unique: true
+    t.index "\"unlock_token\"", name: "index_users_on_unlock_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
