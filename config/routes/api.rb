@@ -8,6 +8,12 @@ namespace :api do
   end
 end
 
+namespace :api do
+  namespace :v1 do
+    resources :books
+  end
+end
+
 # Doorkeeper integration
 scope :api do
   scope :v1 do
