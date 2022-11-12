@@ -5,12 +5,7 @@ namespace :api do
     scope :users, module: :users do
       post '/', to: 'registrations#create', as: :user_registration
     end
-  end
-end
-
-namespace :api do
-  namespace :v1 do
-    resources :books
+      resources :books
   end
 end
 
