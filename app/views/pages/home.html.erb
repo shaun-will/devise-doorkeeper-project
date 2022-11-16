@@ -2,6 +2,14 @@
 <% if user_signed_in? %>
   <h2><%= "Hello, #{current_user.email}"  %></h2>
   <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+  <div class="container mt-3">
+    <ul>
+      <li><%= link_to "View Jobs", jobs_path %></li>
+      <li><%= link_to "Web Books", books_path %></li>
+      <li><%= link_to "API VI Books", api_v1_books_path %></li>
+      <li>API V1 Android Books</li>
+    </ul>
+  </div>
 <% else %>
   <%= link_to "Sign in", new_user_session_path %>
   <br>
@@ -13,10 +21,3 @@
 <pre>
 <%= @application.as_json %>
 </pre>
-<div class="container">
-  <ul>
-    <li><%= link_to "Web Books", books_path %></li>
-    <li><%= link_to "API VI Books", api_v1_books_path %></li>
-    <li>API V1 Android Books</li>
-  </ul>
-</div>

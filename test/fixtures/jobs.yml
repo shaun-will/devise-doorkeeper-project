@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_id: MyString
+  : 1
+  user_id: MyString
+  : 1
+  job_title: MyString
+  : MyText
+  job_description: MyString
+  : MyText
+  job_type: MyString
+  : MyText
+  lat: MyString
+  : 1.5
+  long: MyString
+  : 1.5
+
+two:
+  job_id: MyString
+  : 1
+  user_id: MyString
+  : 1
+  job_title: MyString
+  : MyText
+  job_description: MyString
+  : MyText
+  job_type: MyString
+  : MyText
+  lat: MyString
+  : 1.5
+  long: MyString
+  : 1.5

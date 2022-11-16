@@ -14,4 +14,9 @@ class ApiController < ApplicationController
   def current_user
     @current_user ||= User.find_by(id: doorkeeper_token[:resource_owner_id])
   end
+
+    # helper method to know if current user is logged in
+  def logged_in?
+    !!current_user
+  end
 end

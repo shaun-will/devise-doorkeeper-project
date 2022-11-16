@@ -9,20 +9,22 @@
 if Doorkeeper::Application.count.zero?
   Doorkeeper::Application.create!(
     name: "Web Client",
-    redirect_uri: "",
+    redirect_uri: "http://localhost:3000",
+    scopes: "public"
   )
     Doorkeeper::Application.create!(
     name: "iOS Client",
-    redirect_uri: "",
+    redirect_uri: "http://localhost:3000",
+    scopes: "public"
   )
     Doorkeeper::Application.create!(
     name: "Android Client",
-    redirect_uri: "",
-  )
+    redirect_uri: "http://localhost:3000",
+    scopes: "public"  )
     Doorkeeper::Application.create!(
     name: "React Client",
-    redirect_uri: "",
-  )
+    redirect_uri: "http://localhost:3000",
+    scopes: "public"  )
 end
 
 

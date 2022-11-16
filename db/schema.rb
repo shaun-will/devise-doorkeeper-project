@@ -10,11 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_04_070637) do
+ActiveRecord::Schema.define(version: 2022_11_16_134618) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "job_title"
+    t.text "job_description"
+    t.string "job_type"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "address"
+    t.text "city"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "job_id"
+    t.integer "sent_from_id"
+    t.integer "sent_to_id"
+    t.text "content"
+    t.boolean "message_viewed"
+    t.datetime "message_timestamp"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -63,10 +87,22 @@ ActiveRecord::Schema.define(version: 2022_11_04_070637) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "role", default: 0
-    t.index "\"confirmation_token\"", name: "index_users_on_confirmation_token", unique: true
-    t.index "\"unlock_token\"", name: "index_users_on_unlock_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "address"
+    t.string "city"
+    t.index "\"confirmation_token\"", name: "index_users_on_confirmation_token"
+    t.index "\"unlock_token\"", name: "index_users_on_unlock_token"
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
+  end
+
+  create_table "volunteers", force: :cascade do |t|
+    t.integer "volunteer_id"
+    t.integer "job_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
